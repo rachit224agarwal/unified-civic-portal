@@ -162,7 +162,12 @@ All colors MUST be HSL.
 
   /* Hover lift effect */
   .hover-lift {
-    @apply transition-smooth hover:translate-y-[-4px] hover:shadow-elevated;
+    @apply transition-smooth hover:translate-y-[-4px];
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hover-lift:hover {
+    box-shadow: var(--shadow-elevated);
   }
 
   /* India tricolor accent */
