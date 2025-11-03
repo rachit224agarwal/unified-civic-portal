@@ -152,6 +152,40 @@ const Dashboard = () => {
     },
   ];
 
+  const requestedDocuments = [
+    {
+      type: "Birth Certificate",
+      requestId: "DOC2025001",
+      requestDate: "01 Nov 2025",
+      status: "Processing",
+      estimatedDate: "10 Nov 2025",
+    },
+    {
+      type: "Income Certificate",
+      requestId: "DOC2025002",
+      requestDate: "05 Nov 2025",
+      status: "Under Review",
+      estimatedDate: "15 Nov 2025",
+    },
+  ];
+
+  const activeGrievances = [
+    {
+      title: "Street Light Not Working",
+      grievanceId: "GRV2025045",
+      submittedDate: "28 Oct 2025",
+      status: "In Progress",
+      category: "Infrastructure",
+    },
+    {
+      title: "Water Supply Issue",
+      grievanceId: "GRV2025063",
+      submittedDate: "02 Nov 2025",
+      status: "Under Review",
+      category: "Utilities",
+    },
+  ];
+
   const quickStats = [
     { label: "Pending Bills", value: "3", icon: IndianRupee },
     { label: "Documents Requested", value: "2", icon: FileText },
@@ -316,6 +350,104 @@ const Dashboard = () => {
                     Pay Now
                   </Button>
                 </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Documents Requested */}
+        <div className="mt-12">
+          <div className="flex items-center gap-2 mb-6">
+            <FileText className="h-5 w-5 text-primary" />
+            <h3 className="text-2xl font-bold text-foreground">Documents Requested</h3>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {requestedDocuments.map((doc, index) => (
+              <Card
+                key={index}
+                className="glass-card p-6 hover-lift"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-semibold text-lg text-foreground">{doc.type}</h4>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full font-medium ${
+                      doc.status === "Processing"
+                        ? "bg-blue-500/20 text-blue-500"
+                        : "bg-purple-500/20 text-purple-500"
+                    }`}
+                  >
+                    {doc.status}
+                  </span>
+                </div>
+                <div className="space-y-2 mb-4">
+                  <p className="text-sm text-muted-foreground">
+                    Request ID: <span className="font-mono">{doc.requestId}</span>
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Submitted: {doc.requestDate}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Estimated Delivery: {doc.estimatedDate}
+                  </p>
+                </div>
+                <Button
+                  onClick={() => navigate("/documents")}
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
+                >
+                  View Details
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Active Grievances */}
+        <div className="mt-12">
+          <div className="flex items-center gap-2 mb-6">
+            <MessageSquare className="h-5 w-5 text-primary" />
+            <h3 className="text-2xl font-bold text-foreground">Active Grievances</h3>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {activeGrievances.map((grievance, index) => (
+              <Card
+                key={index}
+                className="glass-card p-6 hover-lift"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-lg text-foreground mb-1">{grievance.title}</h4>
+                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                      {grievance.category}
+                    </span>
+                  </div>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full font-medium ml-2 ${
+                      grievance.status === "In Progress"
+                        ? "bg-green-500/20 text-green-500"
+                        : "bg-yellow-500/20 text-yellow-500"
+                    }`}
+                  >
+                    {grievance.status}
+                  </span>
+                </div>
+                <div className="space-y-2 mb-4">
+                  <p className="text-sm text-muted-foreground">
+                    Grievance ID: <span className="font-mono">{grievance.grievanceId}</span>
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Submitted: {grievance.submittedDate}
+                  </p>
+                </div>
+                <Button
+                  onClick={() => navigate("/grievances")}
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
+                >
+                  Track Status
+                </Button>
               </Card>
             ))}
           </div>
