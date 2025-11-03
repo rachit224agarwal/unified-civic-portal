@@ -12,6 +12,13 @@ import {
   User,
   Bell,
   TrendingUp,
+  Home,
+  Heart,
+  Briefcase,
+  GraduationCap,
+  Car,
+  Wallet,
+  Clock,
 } from "lucide-react";
 
 const Dashboard = () => {
@@ -76,6 +83,72 @@ const Dashboard = () => {
       icon: MessageSquare,
       path: "/grievances",
       color: "from-green-500 to-green-600",
+    },
+    {
+      title: "Property Records",
+      description: "Access land and property documents",
+      icon: Home,
+      path: "/property",
+      color: "from-orange-500 to-red-600",
+    },
+    {
+      title: "Health Services",
+      description: "Book appointments & medical records",
+      icon: Heart,
+      path: "/health",
+      color: "from-pink-500 to-rose-600",
+    },
+    {
+      title: "Tax Services",
+      description: "File returns and check refund status",
+      icon: Wallet,
+      path: "/tax",
+      color: "from-cyan-500 to-blue-600",
+    },
+    {
+      title: "Business License",
+      description: "Apply and renew business permits",
+      icon: Briefcase,
+      path: "/business",
+      color: "from-indigo-500 to-purple-600",
+    },
+    {
+      title: "Education",
+      description: "Scholarships and certificates",
+      icon: GraduationCap,
+      path: "/education",
+      color: "from-teal-500 to-green-600",
+    },
+    {
+      title: "Vehicle Services",
+      description: "Registration and license renewal",
+      icon: Car,
+      path: "/vehicles",
+      color: "from-amber-500 to-orange-600",
+    },
+  ];
+
+  const pendingBills = [
+    {
+      type: "Electricity",
+      amount: 1250,
+      dueDate: "15 Nov 2025",
+      consumerId: "ELEC123456",
+      status: "Overdue",
+    },
+    {
+      type: "Water",
+      amount: 450,
+      dueDate: "20 Nov 2025",
+      consumerId: "WAT789012",
+      status: "Pending",
+    },
+    {
+      type: "Gas",
+      amount: 850,
+      dueDate: "25 Nov 2025",
+      consumerId: "GAS345678",
+      status: "Pending",
     },
   ];
 
@@ -193,6 +266,56 @@ const Dashboard = () => {
                 <Button variant="ghost" className="w-full group-hover:bg-primary/5">
                   Access Service →
                 </Button>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Pending Bills */}
+        <div className="mt-12">
+          <div className="flex items-center gap-2 mb-6">
+            <Clock className="h-5 w-5 text-primary" />
+            <h3 className="text-2xl font-bold text-foreground">Pending Bills</h3>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pendingBills.map((bill, index) => (
+              <Card
+                key={index}
+                className="glass-card p-6 hover-lift"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-semibold text-lg text-foreground">{bill.type}</h4>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full font-medium ${
+                      bill.status === "Overdue"
+                        ? "bg-destructive/20 text-destructive"
+                        : "bg-orange-500/20 text-orange-500"
+                    }`}
+                  >
+                    {bill.status}
+                  </span>
+                </div>
+                <div className="space-y-2 mb-4">
+                  <p className="text-sm text-muted-foreground">
+                    Consumer ID: <span className="font-mono">{bill.consumerId}</span>
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Due Date: {bill.dueDate}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                  <div>
+                    <p className="text-xs text-muted-foreground">Amount Due</p>
+                    <p className="text-2xl font-bold text-primary">₹{bill.amount}</p>
+                  </div>
+                  <Button
+                    onClick={() => navigate("/bills")}
+                    size="sm"
+                    className="bg-gradient-to-r from-primary to-secondary"
+                  >
+                    Pay Now
+                  </Button>
+                </div>
               </Card>
             ))}
           </div>
