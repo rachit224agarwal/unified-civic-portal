@@ -11,44 +11,61 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const features = [
     {
       icon: IndianRupee,
-      title: "Bill Payments",
-      description: "Pay electricity, water, and gas bills instantly with secure transactions"
+      title: t('features.billPayments'),
+      description: t('features.billPaymentsDesc')
     },
     {
       icon: FileText,
-      title: "Official Documents",
-      description: "Request and download verified government documents quickly"
+      title: t('features.documents'),
+      description: t('features.documentsDesc')
     },
     {
       icon: MessageSquare,
-      title: "Grievance Portal",
-      description: "Submit complaints and track resolution status in real-time"
+      title: t('features.grievances'),
+      description: t('features.grievancesDesc')
     },
     {
       icon: Shield,
-      title: "Secure Authentication",
-      description: "Bank-grade security with encrypted data protection"
+      title: t('features.security'),
+      description: t('features.securityDesc')
     }
   ];
 
   const stats = [
-    { value: "10M+", label: "Active Users" },
-    { value: "99.9%", label: "Uptime" },
-    { value: "24/7", label: "Support" },
-    { value: "50+", label: "Services" }
+    { value: "10M+", label: t('stats.activeUsers') },
+    { value: "99.9%", label: t('stats.uptime') },
+    { value: "24/7", label: t('stats.support') },
+    { value: "50+", label: t('stats.services') }
   ];
 
   return (
     <div className="min-h-screen">
+      {/* Fixed Header with Controls */}
+      <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-lg font-bold gradient-text">
+            Citizen Portal
+          </div>
+          <div className="flex items-center gap-3">
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section with Glassmorphism */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Gradient Background */}
         <div 
           className="absolute inset-0 z-0"
@@ -74,14 +91,13 @@ const Index = () => {
               <div className="w-32 h-1 mx-auto mb-8 rounded-full tricolor-border" />
               
               <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-                Empowering Citizens,
+                {t('hero.title')}
                 <br />
-                <span className="text-white">Digitally 🇮🇳</span>
+                <span className="text-white">{t('hero.subtitle')}</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
-                Access all government services seamlessly from one unified platform. 
-                Fast, secure, and available 24/7.
+                {t('hero.description')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -90,7 +106,7 @@ const Index = () => {
                   onClick={() => navigate('/auth')}
                   className="bg-white text-primary hover:bg-white/90 shadow-elevated text-lg px-8 py-6 group"
                 >
-                  Get Started
+                  {t('hero.getStarted')}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button 
@@ -99,7 +115,7 @@ const Index = () => {
                   onClick={() => navigate('/auth')}
                   className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6"
                 >
-                  Sign In
+                  {t('hero.signIn')}
                 </Button>
               </div>
 
@@ -126,10 +142,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-              Comprehensive Services
+              {t('features.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to interact with government services, all in one place
+              {t('features.subtitle')}
             </p>
           </div>
 
@@ -162,15 +178,15 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
-                  Why Choose Our Portal?
+                  {t('benefits.title')}
                 </h2>
                 <div className="space-y-4">
                   {[
-                    "Instant access to 50+ government services",
-                    "Secure payments with transaction history",
-                    "Real-time grievance tracking",
-                    "AI-powered assistance 24/7",
-                    "Mobile-friendly responsive design"
+                    t('benefits.benefit1'),
+                    t('benefits.benefit2'),
+                    t('benefits.benefit3'),
+                    t('benefits.benefit4'),
+                    t('benefits.benefit5')
                   ].map((benefit, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="h-6 w-6 text-primary shrink-0 mt-1" />
@@ -183,7 +199,7 @@ const Index = () => {
                   onClick={() => navigate('/auth')}
                   className="mt-6"
                 >
-                  Start Using Portal
+                  {t('benefits.cta')}
                 </Button>
               </div>
 
@@ -194,8 +210,8 @@ const Index = () => {
                       <Zap className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-card-foreground">Lightning Fast</h4>
-                      <p className="text-sm text-muted-foreground">Services load in under 2 seconds</p>
+                      <h4 className="font-semibold text-card-foreground">{t('benefits.fast')}</h4>
+                      <p className="text-sm text-muted-foreground">{t('benefits.fastDesc')}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -203,8 +219,8 @@ const Index = () => {
                       <Shield className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-card-foreground">Bank-Grade Security</h4>
-                      <p className="text-sm text-muted-foreground">256-bit encryption for all data</p>
+                      <h4 className="font-semibold text-card-foreground">{t('benefits.securityTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">{t('benefits.securityDesc')}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -212,8 +228,8 @@ const Index = () => {
                       <Users className="h-6 w-6 text-accent" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-card-foreground">Trusted by Millions</h4>
-                      <p className="text-sm text-muted-foreground">10M+ active users nationwide</p>
+                      <h4 className="font-semibold text-card-foreground">{t('benefits.trusted')}</h4>
+                      <p className="text-sm text-muted-foreground">{t('benefits.trustedDesc')}</p>
                     </div>
                   </div>
                 </div>
@@ -232,17 +248,17 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center glass-elevated p-12 rounded-3xl">
             <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-              Ready to Get Started?
+              {t('cta.title')}
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Join millions of citizens accessing government services digitally
+              {t('cta.description')}
             </p>
             <Button 
               size="lg"
               onClick={() => navigate('/auth')}
               className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-6"
             >
-              Create Account Now
+              {t('cta.button')}
             </Button>
           </div>
         </div>
@@ -253,10 +269,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-muted-foreground">
-              © 2025 Unified Citizen Service Portal. All rights reserved.
+              {t('footer.copyright')}
             </p>
             <p className="text-sm text-muted-foreground mt-2">
-              A Digital India Initiative
+              {t('footer.initiative')}
             </p>
           </div>
         </div>
