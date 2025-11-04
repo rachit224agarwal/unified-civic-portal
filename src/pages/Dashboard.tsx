@@ -206,7 +206,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background pt-20">
       <PageHeader 
-        title={t('common.citizenServices')}
+        title={t('common.sewabandhu')}
         rightContent={
           <>
             <Button variant="ghost" size="icon">
