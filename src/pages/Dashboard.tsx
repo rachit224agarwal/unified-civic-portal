@@ -4,6 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { PageHeader } from "@/components/PageHeader";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   IndianRupee,
   FileText,
@@ -24,6 +26,7 @@ import {
 const Dashboard = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -195,39 +198,27 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-xl">Loading...</div>
+        <div className="animate-pulse text-xl">{t('common.loading')}</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="glass-card border-b sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-white font-bold">CS</span>
-              </div>
-              <div>
-                <h1 className="font-semibold text-foreground">Citizen Services</h1>
-                <p className="text-xs text-muted-foreground">Government of India</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon">
-                <Bell className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" onClick={handleLogout}>
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-background pt-20">
+      <PageHeader 
+        title={t('common.citizenServices')}
+        rightContent={
+          <>
+            <Button variant="ghost" size="icon">
+              <Bell className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" onClick={handleLogout} size="sm">
+              <LogOut className="h-4 w-4 mr-2" />
+              {t('dashboard.logout')}
+            </Button>
+          </>
+        }
+      />
 
       <div className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
@@ -241,10 +232,10 @@ const Dashboard = () => {
               <div className="flex items-start justify-between">
                 <div>
                   <h2 className="text-3xl font-bold mb-2 text-foreground">
-                    Welcome back, {user?.user_metadata?.full_name || "Citizen"}! 👋
+                    {t('dashboard.welcome')}, {user?.user_metadata?.full_name || t('dashboard.citizen')}! 👋
                   </h2>
                   <p className="text-muted-foreground">
-                    Access all your government services from one place
+                    {t('dashboard.subtitle')}
                   </p>
                 </div>
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -276,7 +267,7 @@ const Dashboard = () => {
         <div>
           <div className="flex items-center gap-2 mb-6">
             <TrendingUp className="h-5 w-5 text-primary" />
-            <h3 className="text-2xl font-bold text-foreground">Quick Access</h3>
+            <h3 className="text-2xl font-bold text-foreground">{t('dashboard.quickAccess')}</h3>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -298,7 +289,7 @@ const Dashboard = () => {
                   {service.description}
                 </p>
                 <Button variant="ghost" className="w-full group-hover:bg-primary/5">
-                  Access Service →
+                  {t('dashboard.accessService')} →
                 </Button>
               </Card>
             ))}
@@ -309,7 +300,7 @@ const Dashboard = () => {
         <div className="mt-12">
           <div className="flex items-center gap-2 mb-6">
             <Clock className="h-5 w-5 text-primary" />
-            <h3 className="text-2xl font-bold text-foreground">Pending Bills</h3>
+            <h3 className="text-2xl font-bold text-foreground">{t('dashboard.pendingBills')}</h3>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pendingBills.map((bill, index) => (
@@ -347,7 +338,7 @@ const Dashboard = () => {
                     size="sm"
                     className="bg-gradient-to-r from-primary to-secondary"
                   >
-                    Pay Now
+                    {t('dashboard.payNow')}
                   </Button>
                 </div>
               </Card>
@@ -359,7 +350,7 @@ const Dashboard = () => {
         <div className="mt-12">
           <div className="flex items-center gap-2 mb-6">
             <FileText className="h-5 w-5 text-primary" />
-            <h3 className="text-2xl font-bold text-foreground">Documents Requested</h3>
+            <h3 className="text-2xl font-bold text-foreground">{t('dashboard.documentsRequested')}</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {requestedDocuments.map((doc, index) => (
@@ -396,7 +387,7 @@ const Dashboard = () => {
                   size="sm"
                   className="w-full"
                 >
-                  View Details
+                  {t('dashboard.viewDetails')}
                 </Button>
               </Card>
             ))}
@@ -407,7 +398,7 @@ const Dashboard = () => {
         <div className="mt-12">
           <div className="flex items-center gap-2 mb-6">
             <MessageSquare className="h-5 w-5 text-primary" />
-            <h3 className="text-2xl font-bold text-foreground">Active Grievances</h3>
+            <h3 className="text-2xl font-bold text-foreground">{t('dashboard.activeGrievances')}</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {activeGrievances.map((grievance, index) => (
@@ -446,7 +437,7 @@ const Dashboard = () => {
                   size="sm"
                   className="w-full"
                 >
-                  Track Status
+                  {t('dashboard.trackStatus')}
                 </Button>
               </Card>
             ))}
@@ -454,13 +445,13 @@ const Dashboard = () => {
         </div>
 
         {/* Recent Activity */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold mb-6 text-foreground">Recent Activity</h3>
+        <div className="mt-12 mb-8">
+          <h3 className="text-2xl font-bold mb-6 text-foreground">{t('dashboard.recentActivity')}</h3>
           <Card className="glass-card p-6">
             <div className="text-center py-8 text-muted-foreground">
               <MessageSquare className="h-12 w-12 mx-auto mb-3 opacity-50" />
-              <p>No recent activity</p>
-              <p className="text-sm">Your recent transactions will appear here</p>
+              <p>{t('dashboard.noActivity')}</p>
+              <p className="text-sm">{t('dashboard.activityDesc')}</p>
             </div>
           </Card>
         </div>

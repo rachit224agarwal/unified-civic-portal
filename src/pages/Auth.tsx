@@ -8,10 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Lock, Mail, User, ArrowLeft, Shield } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
 
   // Login state
@@ -99,6 +102,8 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <PageHeader />
+      
       {/* Background Gradient */}
       <div 
         className="absolute inset-0 z-0"
@@ -122,7 +127,7 @@ const Auth = () => {
             className="mb-6 text-primary-foreground hover:bg-white/10"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Home
+            {t('auth.backHome')}
           </Button>
 
           <Card className="glass-elevated p-8 animate-fade-in">
@@ -132,24 +137,24 @@ const Auth = () => {
                 <Shield className="h-8 w-8 text-primary-foreground" />
               </div>
               <h1 className="text-3xl font-bold gradient-text mb-2">
-                Secure Access
+                {t('auth.secureAccess')}
               </h1>
               <p className="text-muted-foreground">
-                Sign in to access government services
+                {t('auth.subtitle')}
               </p>
             </div>
 
             <Tabs defaultValue="login" className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="login">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                <TabsTrigger value="login">{t('auth.signIn')}</TabsTrigger>
+                <TabsTrigger value="signup">{t('auth.signUp')}</TabsTrigger>
               </TabsList>
 
               {/* Login Form */}
               <TabsContent value="login">
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="login-email">Email</Label>
+                    <Label htmlFor="login-email">{t('auth.email')}</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -165,7 +170,7 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="login-password">Password</Label>
+                    <Label htmlFor="login-password">{t('auth.password')}</Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -185,7 +190,7 @@ const Auth = () => {
                     className="w-full"
                     disabled={loading}
                   >
-                    {loading ? "Signing in..." : "Sign In"}
+                    {loading ? t('auth.signingIn') : t('auth.signIn')}
                   </Button>
                 </form>
               </TabsContent>
@@ -194,13 +199,13 @@ const Auth = () => {
               <TabsContent value="signup">
                 <form onSubmit={handleSignup} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signup-name">Full Name</Label>
+                    <Label htmlFor="signup-name">{t('auth.fullName')}</Label>
                     <div className="relative">
                       <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-name"
                         type="text"
-                        placeholder="Your Full Name"
+                        placeholder={t('auth.fullName')}
                         value={signupName}
                         onChange={(e) => setSignupName(e.target.value)}
                         className="pl-10"
@@ -210,7 +215,7 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email">{t('auth.email')}</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -226,7 +231,7 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
+                    <Label htmlFor="signup-password">{t('auth.password')}</Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -241,7 +246,7 @@ const Auth = () => {
                       />
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Minimum 6 characters
+                      {t('auth.minChars')}
                     </p>
                   </div>
 
@@ -250,7 +255,7 @@ const Auth = () => {
                     className="w-full"
                     disabled={loading}
                   >
-                    {loading ? "Creating Account..." : "Create Account"}
+                    {loading ? t('auth.creatingAccount') : t('auth.createAccount')}
                   </Button>
                 </form>
               </TabsContent>
@@ -259,7 +264,7 @@ const Auth = () => {
             {/* Security Notice */}
             <div className="mt-6 p-4 bg-muted/50 rounded-lg">
               <p className="text-xs text-muted-foreground text-center">
-                🔒 Your data is protected with bank-grade encryption
+                {t('auth.security')}
               </p>
             </div>
           </Card>

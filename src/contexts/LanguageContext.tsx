@@ -163,6 +163,133 @@ export const translations: Translations = {
     en: 'A Digital India Initiative',
     hi: 'एक डिजिटल इंडिया पहल',
   },
+  // Auth Page
+  'auth.backHome': {
+    en: 'Back to Home',
+    hi: 'होम पर वापस जाएं',
+  },
+  'auth.secureAccess': {
+    en: 'Secure Access',
+    hi: 'सुरक्षित पहुंच',
+  },
+  'auth.subtitle': {
+    en: 'Sign in to access government services',
+    hi: 'सरकारी सेवाओं तक पहुंचने के लिए साइन इन करें',
+  },
+  'auth.signIn': {
+    en: 'Sign In',
+    hi: 'साइन इन',
+  },
+  'auth.signUp': {
+    en: 'Sign Up',
+    hi: 'साइन अप',
+  },
+  'auth.email': {
+    en: 'Email',
+    hi: 'ईमेल',
+  },
+  'auth.password': {
+    en: 'Password',
+    hi: 'पासवर्ड',
+  },
+  'auth.fullName': {
+    en: 'Full Name',
+    hi: 'पूरा नाम',
+  },
+  'auth.signingIn': {
+    en: 'Signing in...',
+    hi: 'साइन इन हो रहा है...',
+  },
+  'auth.creatingAccount': {
+    en: 'Creating Account...',
+    hi: 'खाता बनाया जा रहा है...',
+  },
+  'auth.createAccount': {
+    en: 'Create Account',
+    hi: 'खाता बनाएं',
+  },
+  'auth.minChars': {
+    en: 'Minimum 6 characters',
+    hi: 'न्यूनतम 6 अक्षर',
+  },
+  'auth.security': {
+    en: '🔒 Your data is protected with bank-grade encryption',
+    hi: '🔒 आपका डेटा बैंक-ग्रेड एन्क्रिप्शन से सुरक्षित है',
+  },
+  // Dashboard
+  'dashboard.welcome': {
+    en: 'Welcome back',
+    hi: 'वापसी पर स्वागत है',
+  },
+  'dashboard.citizen': {
+    en: 'Citizen',
+    hi: 'नागरिक',
+  },
+  'dashboard.subtitle': {
+    en: 'Access all your government services from one place',
+    hi: 'एक स्थान से अपनी सभी सरकारी सेवाओं तक पहुंचें',
+  },
+  'dashboard.logout': {
+    en: 'Logout',
+    hi: 'लॉगआउट',
+  },
+  'dashboard.quickAccess': {
+    en: 'Quick Access',
+    hi: 'त्वरित पहुंच',
+  },
+  'dashboard.pendingBills': {
+    en: 'Pending Bills',
+    hi: 'लंबित बिल',
+  },
+  'dashboard.documentsRequested': {
+    en: 'Documents Requested',
+    hi: 'अनुरोधित दस्तावेज़',
+  },
+  'dashboard.activeGrievances': {
+    en: 'Active Grievances',
+    hi: 'सक्रिय शिकायतें',
+  },
+  'dashboard.recentActivity': {
+    en: 'Recent Activity',
+    hi: 'हाल की गतिविधि',
+  },
+  'dashboard.noActivity': {
+    en: 'No recent activity',
+    hi: 'कोई हालिया गतिविधि नहीं',
+  },
+  'dashboard.activityDesc': {
+    en: 'Your recent transactions will appear here',
+    hi: 'आपके हाल के लेनदेन यहां दिखाई देंगे',
+  },
+  'dashboard.accessService': {
+    en: 'Access Service',
+    hi: 'सेवा का उपयोग करें',
+  },
+  'dashboard.payNow': {
+    en: 'Pay Now',
+    hi: 'अभी भुगतान करें',
+  },
+  'dashboard.viewDetails': {
+    en: 'View Details',
+    hi: 'विवरण देखें',
+  },
+  'dashboard.trackStatus': {
+    en: 'Track Status',
+    hi: 'स्थिति ट्रैक करें',
+  },
+  // Common
+  'common.loading': {
+    en: 'Loading...',
+    hi: 'लोड हो रहा है...',
+  },
+  'common.citizenServices': {
+    en: 'Citizen Services',
+    hi: 'नागरिक सेवाएं',
+  },
+  'common.govIndia': {
+    en: 'Government of India',
+    hi: 'भारत सरकार',
+  },
 };
 
 interface LanguageContextType {
