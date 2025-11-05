@@ -112,7 +112,7 @@ const Index = () => {
       <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 backdrop-blur-md bg-gradient-to-r from-slate-900/60 via-indigo-800/40 to-slate-900/60 dark:from-slate-950/60 dark:to-indigo-950/40">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-xl font-bold tracking-tight gradient-text">
-            SewaBandhu
+            eSahayata
           </div>
           <div className="flex items-center gap-3">
             <LanguageToggle />

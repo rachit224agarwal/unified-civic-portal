@@ -283,8 +283,8 @@ export const translations: Translations = {
     hi: 'लोड हो रहा है...',
   },
   'common.sewabandhu': {
-    en: 'Sewa Bandhu',
-    hi: 'सेवा बंधु',
+    en: 'eSahayata',
+    hi: 'ई-सहायता',
   },
   'common.govIndia': {
     en: 'Government of India',
