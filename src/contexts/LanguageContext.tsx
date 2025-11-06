@@ -290,6 +290,91 @@ export const translations: Translations = {
     en: 'Government of India',
     hi: 'भारत सरकार',
   },
+  // Vehicle Services
+  'vehicleServices.title': {
+    en: 'Vehicle Services Portal',
+    hi: 'वाहन सेवा पोर्टल',
+  },
+  'vehicleServices.description': {
+    en: 'Manage all your vehicle-related services in one place',
+    hi: 'एक ही स्थान पर अपनी सभी वाहन संबंधी सेवाओं का प्रबंधन करें',
+  },
+  'vehicleServices.drivingLicense': {
+    en: 'Driving License',
+    hi: 'ड्राइविंग लाइसेंस',
+  },
+  'vehicleServices.drivingLicenseDesc': {
+    en: 'Apply for new license, renewal, duplicate, or address change',
+    hi: 'नए लाइसेंस, नवीनीकरण, डुप्लिकेट या पते के परिवर्तन के लिए आवेदन करें',
+  },
+  'vehicleServices.registration': {
+    en: 'Vehicle Registration',
+    hi: 'वाहन पंजीकरण',
+  },
+  'vehicleServices.registrationDesc': {
+    en: 'Register new vehicle, transfer ownership, or update registration details',
+    hi: 'नए वाहन का पंजीकरण, स्वामित्व हस्तांतरण या पंजीकरण विवरण अपडेट करें',
+  },
+  'vehicleServices.rcTransfer': {
+    en: 'RC Transfer',
+    hi: 'आरसी स्थानांतरण',
+  },
+  'vehicleServices.rcTransferDesc': {
+    en: 'Transfer vehicle ownership and update RC details',
+    hi: 'वाहन स्वामित्व स्थानांतरित करें और आरसी विवरण अपडेट करें',
+  },
+  'vehicleServices.roadTax': {
+    en: 'Road Tax Payment',
+    hi: 'सड़क कर भुगतान',
+  },
+  'vehicleServices.roadTaxDesc': {
+    en: 'Pay road tax online and download payment receipts',
+    hi: 'सड़क कर ऑनलाइन भुगतान करें और रसीदें डाउनलोड करें',
+  },
+  'vehicleServices.fitness': {
+    en: 'Fitness Certificate',
+    hi: 'फिटनेस प्रमाणपत्र',
+  },
+  'vehicleServices.fitnessDesc': {
+    en: 'Get fitness certificate for commercial vehicles',
+    hi: 'वाणिज्यिक वाहनों के लिए फिटनेस प्रमाणपत्र प्राप्त करें',
+  },
+  'vehicleServices.pollution': {
+    en: 'Pollution Certificate',
+    hi: 'प्रदूषण प्रमाणपत्र',
+  },
+  'vehicleServices.pollutionDesc': {
+    en: 'Check PUC status and book pollution certificate test',
+    hi: 'पीयूसी स्थिति जांचें और प्रदूषण प्रमाणपत्र परीक्षण बुक करें',
+  },
+  'vehicleServices.permit': {
+    en: 'Vehicle Permit',
+    hi: 'वाहन परमिट',
+  },
+  'vehicleServices.permitDesc': {
+    en: 'Apply for various vehicle permits including tourist and goods carrier',
+    hi: 'पर्यटक और माल वाहक सहित विभिन्न वाहन परमिट के लिए आवेदन करें',
+  },
+  'vehicleServices.challan': {
+    en: 'Traffic Challan',
+    hi: 'यातायात चालान',
+  },
+  'vehicleServices.challanDesc': {
+    en: 'Check pending challans and pay traffic fines online',
+    hi: 'लंबित चालान जांचें और यातायात जुर्माना ऑनलाइन भुगतान करें',
+  },
+  'vehicleServices.applyNow': {
+    en: 'Apply Now',
+    hi: 'अभी आवेदन करें',
+  },
+  'vehicleServices.checkStatus': {
+    en: 'Check Status',
+    hi: 'स्थिति जांचें',
+  },
+  'vehicleServices.payNow': {
+    en: 'Pay Now',
+    hi: 'अभी भुगतान करें',
+  },
 };
 
 interface LanguageContextType {
