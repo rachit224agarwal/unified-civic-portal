@@ -59,7 +59,7 @@ It enables faster, more transparent, and more accessible governance for every ci
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/your-username/eSahayata.git
+   (https://github.com/rachit224agarwal/unified-civic-portal.git)
    cd eSahayata
 Install dependencies
 ```bash
